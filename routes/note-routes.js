@@ -20,6 +20,16 @@ const {
   getAllSaturday
 } = require("../controllers/note-get-all-controller");
 
+const {
+  getAllArchive,
+  getAllSunArchive,
+  getAllMonArchive
+} = require("../controllers/archive-controller");
+
+// const {} = require("../controllers/");
+
+// const {} = require("../controllers/");
+
 const router = express.Router();
 
 //SUNDAY CRUD
@@ -105,5 +115,12 @@ router.post("/saturday/new", createNewNoteSaturday);
 router.put("/saturday/edit/:id");
 // Route to Delete Saturday note by ID
 router.delete("/saturday/delete/:id");
+
+// ARCHIVE CRUD
+// View all notes in archive
+router.get("/archive/all", getAllArchive);
+// Get all archived for notes assigned to sunday day
+router.get("/archive/sunday", getAllSunArchive);
+router.get("/archive/:dayofweek", getAllMonArchive);
 
 module.exports = router;

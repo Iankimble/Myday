@@ -1,8 +1,12 @@
 import React from "react";
+import MainRouter from "./MainRouter";
+import { BrowserRouter } from "react-router-dom";
 
 const App = () => (
   <div>
-    <h1>Myday</h1>
+    <BrowserRouter>
+      <MainRouter />
+    </BrowserRouter>
   </div>
 );
 

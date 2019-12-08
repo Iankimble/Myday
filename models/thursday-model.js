@@ -9,6 +9,13 @@ const thursdaySchema = new mongoose.Schema({
   },
   completed: {
     type: Boolean
+  },
+  date: {
+    type: String
+  },
+  dayOfWeek: {
+    type: String,
+    default: "thursday"
   }
 });
 

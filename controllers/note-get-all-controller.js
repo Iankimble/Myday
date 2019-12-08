@@ -27,6 +27,8 @@ exports.getAllMonday = (req, res) => {
       });
     }
     res.json(notes);
+    let count = notes.length;
+    console.log(`there are ${count} notes for Sunday`);
   });
 };
 

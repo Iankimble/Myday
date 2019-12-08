@@ -1,15 +1,22 @@
 const mongoose = require("mongoose");
 
-const SundaySchema = new mongoose.Schema({
+const sundaySchema = new mongoose.Schema({
   title: {
     type: String
   },
   body: {
     type: String
+  },
+  completed: {
+    type: Boolean
+  },
+  date: {
+    type: String
+  },
+  dayOfWeek: {
+    type: String,
+    default: "sunday"
   }
-  // completed: {
-  //   type: Boolean
-  // }
 });
 
-module.exports = mongoose.model("Sunday", SundaySchema);
+module.exports = mongoose.model("Sunday", sundaySchema);

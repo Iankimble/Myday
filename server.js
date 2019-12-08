@@ -58,6 +58,8 @@ console.log(fri);
 console.log(sat);
 
 //Routes
+// const authRoutes = require("./routes/auth-routes");
+// const userRoutes = require("./routes/user-routes");
 const noteRoutes = require("./routes/note-routes");
 
 //Middleware/ Checkware
@@ -65,6 +67,7 @@ app.use(morgan("dev"));
 app.use(bodyParser.json());
 app.use(cors());
 app.use("/", noteRoutes);
+// userRoutes, authRoutes
 
 // // MongoDB
 mongoose
