@@ -7,6 +7,13 @@ const Friday = require("../models/friday-model");
 const Saturday = require("../models/saturday-model");
 const Archive = require("../models/Archive-model");
 
+const _fs = require("fs");
+const _ = require("lodash");
+
+exports.noteById = (req, res, next, id) => {
+  Note.findById(id).populate("postedBy", "_id name");
+};
+
 // Logic to create a new note
 exports.createNewNoteSunday = (req, res) => {
   let newNote = new Sunday(req.body);
