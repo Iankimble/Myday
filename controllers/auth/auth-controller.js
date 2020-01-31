@@ -1,8 +1,9 @@
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 const expressJwt = require("express-jwt");
+const _ = require("lodash");
 
-const User = require("../models/User-model");
+const User = require("../../models/User-model");
 
 exports.signup = async (req, res) => {
   const userExists = await User.findOne({ email: req.body.email });
@@ -32,6 +33,8 @@ exports.signin = (req, res) => {
     const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET);
 
     res.cookie("tkn", token, { expire: new Date() + 9999 });
+    const { _id, firstName, lastName, email } = user;
+    return res.json({ token, user: { _id, email, firstName, lastName } });
   });
 };
 

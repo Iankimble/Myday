@@ -1,22 +1,21 @@
 const mongoose = require("mongoose");
+const { ObjectId } = mongoose.Schema;
 
 const fridaySchema = new mongoose.Schema({
-  title: {
-    type: String,
-    required: true
-  },
-  body: {
-    type: String
-  },
-  completed: {
-    type: Boolean
-  },
-  date: {
+  note: {
     type: String
   },
   dayOfWeek: {
     type: String,
     default: "friday"
+  },
+  postedBy: {
+    type: ObjectId,
+    ref: "User"
+  },
+  createdOn: {
+    type: Date,
+    default: Date.now
   }
 });
 

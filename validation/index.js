@@ -1,5 +1,5 @@
 exports.creatNoteValidation = (req, res, next) => {
-  req.check("title", "Please provide a name for your note.").notEmpty();
+  req.check("note", "Please write somthing").notEmpty();
 
   const errors = req.validationErrors();
   if (errors) {
@@ -13,10 +13,18 @@ exports.creatNoteValidation = (req, res, next) => {
 exports.userSignupValidation = (req, res, next) => {
   req.check("firstName", "Your first name is required.").notEmpty();
   req.check("lastName", "Your last name is required.").notEmpty();
+  req
+    .check("email", "A valid email address is required.")
+    .matches(/.+\@.+\..+/)
+    .withMessage("email must contain and @ symbol")
+    .isLength({
+      min: 4,
+      max: 100
+    });
 
   req.check("password", "A password is required.").notEmpty();
   req
-    .chek("password")
+    .check("password")
     .isLength({
       min: 6
     })

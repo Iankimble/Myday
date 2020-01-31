@@ -1,6 +1,13 @@
 import React, { Component } from "react";
 import moment from "moment";
-import { Card, Button, CardColumns } from "react-bootstrap";
+import {
+  Card,
+  Button,
+  CardColumns,
+  Row,
+  Col,
+  Container
+} from "react-bootstrap";
 
 class MyCalendar extends Component {
   constructor() {
@@ -63,180 +70,194 @@ class MyCalendar extends Component {
       .format("dddd, MMMM Do YYYY");
 
     return (
-      <div>
-        <CardColumns>
-          <Card
-            style={{
-              width: "16rem",
-              backgroundColor: "lightblue",
-              border: "black solid 3px",
-              padding: "2px",
-              margin: "3px",
-              display: "inline-block"
-            }}
-          >
-            <Card.Img />
-            <Card.Body>
-              <Card.Title>
-                <h2 style={{ textAlign: "center" }}>{sun}</h2>
-              </Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-              <Button variant="primary" style={{ backgroundColor: "red" }}>
-                Create Note
-              </Button>
-              <Button variant="primary" style={{}}>
-                View notes
-              </Button>
-            </Card.Body>
-          </Card>
+      <div
+        style={{
+          // marginLeft: "20px",
+          // marginRight: "20px",
+          justifyContent: "center",
+          alignContent: "center",
+          display: "flex"
+        }}
+      >
+        <Container
+          style={{
+            marginLeft: "20px",
+            marginRight: "20px",
+            justifyContent: "center",
+            alignContent: "center",
+            display: "flex"
+          }}
+        >
+          <Row>
+            <CardColumns>
+              <Card
+                style={{
+                  backgroundColor: "lightblue",
+                  border: "black solid 3px",
+                  padding: "2px",
+                  marginLeft: "5px"
+                }}
+              >
+                <Card.Img />
+                <Card.Body>
+                  <Card.Title>
+                    <h2 style={{ textAlign: "center" }}>{sun}</h2>
+                  </Card.Title>
+                  <Card.Text>
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </Card.Text>
+                  <div style={{}}>
+                    <Button
+                      variant="primary"
+                      style={{
+                        backgroundColor: "red",
+                        border: "none"
+                      }}
+                    >
+                      Create Note
+                    </Button>
+                    <Button variant="primary" style={{}}>
+                      View notes
+                    </Button>
+                  </div>
+                </Card.Body>
+              </Card>
 
-          <Card
-            style={{
-              width: "16rem",
-              backgroundColor: "lightblue",
-              border: "black solid 3px",
-              padding: "2px",
-              margin: "3px",
-              display: "inline-block"
-            }}
-          >
-            <Card.Img />
-            <Card.Body>
-              <Card.Title>
-                <h2 style={{ textAlign: "center" }}>{mon}</h2>
-              </Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-              <Button variant="primary">Create Note</Button>
-              <Button variant="primary">View notes</Button>
-            </Card.Body>
-          </Card>
+              <Card
+                style={{
+                  backgroundColor: "lightblue",
+                  border: "black solid 3px",
+                  padding: "2px",
+                  margin: "5px"
+                }}
+              >
+                <Card.Img />
+                <Card.Body>
+                  <Card.Title>
+                    <h2 style={{ textAlign: "center" }}>{mon}</h2>
+                  </Card.Title>
+                  <Card.Text>
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </Card.Text>
+                  <Button variant="primary">Create Note</Button>
+                  <Button variant="primary">View notes</Button>
+                </Card.Body>
+              </Card>
 
-          <Card
-            style={{
-              width: "16rem",
-              backgroundColor: "lightblue",
-              border: "black solid 3px",
-              padding: "2px",
-              margin: "3px",
-              display: "inline-block"
-            }}
-          >
-            <Card.Img />
-            <Card.Body>
-              <Card.Title>
-                <h2 style={{ textAlign: "center" }}>{tue}</h2>
-              </Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-              <Button variant="primary">Create Note</Button>
-              <Button variant="primary">View notes</Button>
-            </Card.Body>
-          </Card>
+              <Card
+                style={{
+                  backgroundColor: "lightblue",
+                  border: "black solid 3px",
+                  padding: "2px",
+                  margin: "5px"
+                }}
+              >
+                <Card.Img />
+                <Card.Body>
+                  <Card.Title>
+                    <h2 style={{ textAlign: "center" }}>{tue}</h2>
+                  </Card.Title>
+                  <Card.Text>
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </Card.Text>
+                  <Button variant="primary">Create Note</Button>
+                  <Button variant="primary">View notes</Button>
+                </Card.Body>
+              </Card>
 
-          <Card
-            style={{
-              width: "16rem",
-              backgroundColor: "lightblue",
-              border: "black solid 3px",
-              padding: "2px",
-              margin: "3px",
-              display: "inline-block"
-            }}
-          >
-            <Card.Img />
-            <Card.Body>
-              <Card.Title>
-                <h2 style={{ textAlign: "center" }}>{wed}</h2>
-              </Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-              <Button variant="primary">Create Note</Button>
-              <Button variant="primary">View notes</Button>
-            </Card.Body>
-          </Card>
+              <Card
+                style={{
+                  backgroundColor: "lightblue",
+                  border: "black solid 3px",
+                  padding: "2px",
+                  margin: "5px"
+                }}
+              >
+                <Card.Img />
+                <Card.Body>
+                  <Card.Title>
+                    <h2 style={{ textAlign: "center" }}>{wed}</h2>
+                  </Card.Title>
+                  <Card.Text>
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </Card.Text>
+                  <Button variant="primary">Create Note</Button>
+                  <Button variant="primary">View notes</Button>
+                </Card.Body>
+              </Card>
 
-          <Card
-            style={{
-              width: "16rem",
-              backgroundColor: "lightblue",
-              border: "black solid 3px",
-              padding: "2px",
-              margin: "3px",
-              display: "inline-block"
-            }}
-          >
-            <Card.Img />
-            <Card.Body>
-              <Card.Title>
-                <h2 style={{ textAlign: "center" }}>{thu}</h2>
-              </Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-              <Button variant="primary">Create Note</Button>
-              <Button variant="primary">View notes</Button>
-            </Card.Body>
-          </Card>
+              <Card
+                style={{
+                  backgroundColor: "lightblue",
+                  border: "black solid 3px",
+                  padding: "2px",
+                  margin: "5px"
+                }}
+              >
+                <Card.Img />
+                <Card.Body>
+                  <Card.Title>
+                    <h2 style={{ textAlign: "center" }}>{thu}</h2>
+                  </Card.Title>
+                  <Card.Text>
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </Card.Text>
+                  <Button variant="primary">Create Note</Button>
+                  <Button variant="primary">View notes</Button>
+                </Card.Body>
+              </Card>
 
-          <Card
-            style={{
-              width: "16rem",
-              backgroundColor: "lightblue",
-              border: "black solid 3px",
-              padding: "2px",
-              margin: "3px",
-              display: "inline-block"
-            }}
-          >
-            <Card.Img />
-            <Card.Body>
-              <Card.Title>
-                <h2 style={{ textAlign: "center" }}>{fri}</h2>
-              </Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-              <Button variant="primary">Create Note</Button>
-              <Button variant="primary">View notes</Button>
-            </Card.Body>
-          </Card>
+              <Card
+                style={{
+                  backgroundColor: "lightblue",
+                  border: "black solid 3px",
+                  padding: "2px",
+                  margin: "5px"
+                }}
+              >
+                <Card.Img />
+                <Card.Body>
+                  <Card.Title>
+                    <h2 style={{ textAlign: "center" }}>{fri}</h2>
+                  </Card.Title>
+                  <Card.Text>
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </Card.Text>
+                  <Button variant="primary">Create Note</Button>
+                  <Button variant="primary">View notes</Button>
+                </Card.Body>
+              </Card>
 
-          <Card
-            style={{
-              width: "16rem",
-              backgroundColor: "lightblue",
-              border: "black solid 3px",
-              padding: "2px",
-              margin: "3px",
-              display: "inline-block"
-            }}
-          >
-            <Card.Img />
-            <Card.Body>
-              <Card.Title>
-                <h2 style={{ textAlign: "center" }}>{sat}</h2>
-              </Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-              <Button variant="primary">Create Note</Button>
-              <Button variant="primary">View notes</Button>
-            </Card.Body>
-          </Card>
-        </CardColumns>
+              <Card
+                style={{
+                  backgroundColor: "lightblue",
+                  border: "black solid 3px",
+                  padding: "2px",
+                  margin: "5px"
+                }}
+              >
+                <Card.Img />
+                <Card.Body>
+                  <Card.Title>
+                    <h2 style={{ textAlign: "center" }}>{sat}</h2>
+                  </Card.Title>
+                  <Card.Text>
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </Card.Text>
+                  <Button variant="primary">Create Note</Button>
+                  <Button variant="primary">View notes</Button>
+                </Card.Body>
+              </Card>
+            </CardColumns>
+          </Row>
+        </Container>
       </div>
     );
   }

@@ -2,7 +2,9 @@ const express = require("express");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
+const expressValidator = require("express-validator");
 const mongoose = require("mongoose");
+const path = require("path");
 const cors = require("cors");
 
 const moment = require("moment");
@@ -15,59 +17,51 @@ const app = express();
 // logic purposed for frontend. will be used for the
 // day models to catagorize the days
 
-let sun = moment()
-  .startOf("week")
-  .format("dddd, MMMM Do YYYY");
+// let sun = moment()
+//   .startOf("week")
+//   .format("dddd, MMMM Do YYYY");
 
-let mon = moment()
-  .startOf("week")
-  .add(1, "d")
-  .format("dddd, MMMM Do YYYY");
+// let mon = moment()
+//   .startOf("week")
+//   .add(1, "d")
+//   .format("dddd, MMMM Do YYYY");
 
-let tue = moment()
-  .startOf("week")
-  .add(2, "d")
-  .format("dddd, MMMM Do YYYY");
+// let tue = moment()
+//   .startOf("week")
+//   .add(2, "d")
+//   .format("dddd, MMMM Do YYYY");
 
-let wed = moment()
-  .startOf("week")
-  .add("3", "d")
-  .format("dddd, MMMM Do YYYY");
+// let wed = moment()
+//   .startOf("week")
+//   .add("3", "d")
+//   .format("dddd, MMMM Do YYYY");
 
-let thur = moment()
-  .startOf("week")
-  .add("4", "d")
-  .format("dddd, MMMM Do YYYY");
+// let thur = moment()
+//   .startOf("week")
+//   .add("4", "d")
+//   .format("dddd, MMMM Do YYYY");
 
-let fri = moment()
-  .startOf("week")
-  .add("5", "d")
-  .format("dddd, MMMM Do YYYY");
+// let fri = moment()
+//   .startOf("week")
+//   .add("5", "d")
+//   .format("dddd, MMMM Do YYYY");
 
-let sat = moment()
-  .endOf("week")
-  .format("dddd, MMMM Do YYYY");
-
-console.log("Current Week");
-console.log(sun);
-console.log(mon);
-console.log(tue);
-console.log(wed);
-console.log(thur);
-console.log(fri);
-console.log(sat);
+// let sat = moment()
+//   .endOf("week")
+//   .format("dddd, MMMM Do YYYY");
 
 //Routes
-// const authRoutes = require("./routes/auth-routes");
-// const userRoutes = require("./routes/user-routes");
+const authRoutes = require("./routes/auth-routes");
+const userRoutes = require("./routes/user-routes");
 const noteRoutes = require("./routes/note-routes");
 
 //Middleware/ Checkware
 app.use(morgan("dev"));
 app.use(bodyParser.json());
+app.use(cookieParser());
+app.use(expressValidator());
 app.use(cors());
-app.use("/", noteRoutes);
-// userRoutes, authRoutes
+app.use("/", noteRoutes, userRoutes, authRoutes);
 
 // // MongoDB
 mongoose

@@ -4,9 +4,9 @@ const {
   userById,
   getUser,
   deleteUser
-} = require("../controllers/user-crud-controller");
+} = require("../controllers/user/user-crud-controller");
 
-const { requireSignin } = require("../controllers/auth-controller");
+const { requireSignin } = require("../controllers/auth/auth-controller");
 
 const router = express.Router();
 

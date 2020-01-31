@@ -1,4 +1,4 @@
-const Archive = require("../models/Archive-model");
+const Archive = require("../../models/Archive-model");
 
 exports.getAllArchive = (req, res, next) => {
   Archive.find((err, archives) => {
