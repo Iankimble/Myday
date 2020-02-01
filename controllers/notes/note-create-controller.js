@@ -9,26 +9,57 @@ const Archive = require("../../models/Archive-model");
 
 const _fs = require("fs");
 const _ = require("lodash");
+const formidable = require("formidable");
 
 exports.createNewNoteSunday = (req, res) => {
-  let newNote = new Sunday(req.body);
-  let newArchive = new Archive(newNote);
+  // let newNote = new Sunday(req.body);
+  // let newArchive = new Archive(newNote);
 
-  req.profile.hashed_password = undefined;
-  req.profile.salt = undefined;
-  newNote.postedBy = req.profile;
+  // req.profile.hashed_password = undefined;
+  // req.profile.salt = undefined;
+  // newNote.postedBy = req.profile;
+  // newNote.note = req.body.note;
 
-  newNote.save(err => {
+  // newNote.save(err => {
+  //   if (err) {
+  //     return res.status(400).json({
+  //       msg: "Something went wrong -Ian"
+  //     });
+  //   }
+  //   res.json({
+  //     msg:
+  //       "Note has been successfully added to archive and Sunday collections -Ian"
+  //   });
+  //   newArchive.save();
+  // });
+
+  let form = new formidable.IncomingForm();
+
+  form.keepExtensions = true;
+  form.parse(req, (err, fields, files) => {
     if (err) {
       return res.status(400).json({
-        msg: "Something went wrong -Ian"
+        error: "Image could not be uploaded"
       });
     }
-    res.json({
-      msg:
-        "Note has been successfully added to archive and Sunday collections -Ian"
+    let post = new Sunday(fields);
+
+    req.profile.hashed_password = undefined;
+    req.profile.salt = undefined;
+    post.postedBy = req.profile;
+
+    // if (files.photo) {
+    //   post.photo.data = fs.readFileSync(files.photo.path);
+    //   post.photo.contentType = files.photo.type;
+    // }
+    post.save((err, result) => {
+      if (err) {
+        return res.status(400).json({
+          error: err
+        });
+      }
+      res.json(result);
     });
-    newArchive.save();
   });
 };
 
