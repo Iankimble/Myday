@@ -1,7 +1,7 @@
 import React from "react";
 import { Jumbotron, Container, Button, Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
-// import mainImg from "";
+import mainImg from "../images/organizer-791939_1920.jpg";
 
 const Main = () => (
   <div style={{ fontFamily: "IBM Plex Serif" }}>
@@ -9,7 +9,7 @@ const Main = () => (
       fluid
       style={{
         height: "70vh",
-        // backgroundImage: `url(${})`,
+        backgroundImage: `url(${mainImg})`,
         backgroundSize: "cover",
         marginLeft: "20px",
         marginRight: "20px"

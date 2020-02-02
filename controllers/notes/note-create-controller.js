@@ -12,6 +12,8 @@ const _ = require("lodash");
 const formidable = require("formidable");
 
 exports.createNewNoteSunday = (req, res) => {
+  // OLD LOGIC FOR CREATING NOTE LOCALLY
+
   // let newNote = new Sunday(req.body);
   // let newArchive = new Archive(newNote);
 
@@ -32,7 +34,7 @@ exports.createNewNoteSunday = (req, res) => {
   //   });
   //   newArchive.save();
   // });
-
+  //_________________________________________________________________//
   let form = new formidable.IncomingForm();
 
   form.keepExtensions = true;
@@ -48,10 +50,6 @@ exports.createNewNoteSunday = (req, res) => {
     req.profile.salt = undefined;
     post.postedBy = req.profile;
 
-    // if (files.photo) {
-    //   post.photo.data = fs.readFileSync(files.photo.path);
-    //   post.photo.contentType = files.photo.type;
-    // }
     post.save((err, result) => {
       if (err) {
         return res.status(400).json({
@@ -64,133 +62,163 @@ exports.createNewNoteSunday = (req, res) => {
 };
 
 exports.createNewNoteMonday = (req, res) => {
-  let newNote = new Monday(req.body);
-  let newArchive = new Archive(newNote);
+  let form = new formidable.IncomingForm();
 
-  req.profile.hashed_password = undefined;
-  req.profile.salt = undefined;
-  newNote.postedBy = req.profile;
-
-  newNote.save(err => {
+  form.keepExtensions = true;
+  form.parse(req, (err, fields, files) => {
     if (err) {
       return res.status(400).json({
-        msg: "Something went wrong -Ian"
+        error: "Image could not be uploaded"
       });
     }
-    res.json({
-      msg:
-        "Note has been successfully added to archive and Sunday collections -Ian"
+    let post = new Monday(fields);
+
+    req.profile.hashed_password = undefined;
+    req.profile.salt = undefined;
+    post.postedBy = req.profile;
+
+    post.save((err, result) => {
+      if (err) {
+        return res.status(400).json({
+          error: err
+        });
+      }
+      res.json(result);
     });
-    newArchive.save();
   });
 };
 
 exports.createNewNoteTuesday = (req, res) => {
-  let newNote = new Tuesday(req.body);
-  let newArchive = new Archive(newNote);
+  let form = new formidable.IncomingForm();
 
-  req.profile.hashed_password = undefined;
-  req.profile.salt = undefined;
-  newNote.postedBy = req.profile;
-
-  newNote.save(err => {
+  form.keepExtensions = true;
+  form.parse(req, (err, fields, files) => {
     if (err) {
       return res.status(400).json({
-        msg: "Something went wrong -Ian"
+        error: "Image could not be uploaded"
       });
     }
-    res.json({
-      msg:
-        "Note has been successfully added to archive and Sunday collections -Ian"
+    let post = new Tuesday(fields);
+
+    req.profile.hashed_password = undefined;
+    req.profile.salt = undefined;
+    post.postedBy = req.profile;
+
+    post.save((err, result) => {
+      if (err) {
+        return res.status(400).json({
+          error: err
+        });
+      }
+      res.json(result);
     });
-    newArchive.save();
   });
 };
 
 exports.createNewNoteWednesday = (req, res) => {
-  let newNote = new Wednesday(req.body);
-  let newArchive = new Archive(newNote);
+  let form = new formidable.IncomingForm();
 
-  req.profile.hashed_password = undefined;
-  req.profile.salt = undefined;
-  newNote.postedBy = req.profile;
-
-  newNote.save(err => {
+  form.keepExtensions = true;
+  form.parse(req, (err, fields, files) => {
     if (err) {
       return res.status(400).json({
-        msg: "Something went wrong -Ian"
+        error: "Image could not be uploaded"
       });
     }
-    res.json({
-      msg:
-        "Note has been successfully added to archive and Sunday collections -Ian"
+    let post = new Wednesday(fields);
+
+    req.profile.hashed_password = undefined;
+    req.profile.salt = undefined;
+    post.postedBy = req.profile;
+
+    post.save((err, result) => {
+      if (err) {
+        return res.status(400).json({
+          error: err
+        });
+      }
+      res.json(result);
     });
-    newArchive.save();
   });
 };
 
 exports.createNewNoteThursday = (req, res) => {
-  let newNote = new Thursday(req.body);
-  let newArchive = new Archive(newNote);
+  let form = new formidable.IncomingForm();
 
-  req.profile.hashed_password = undefined;
-  req.profile.salt = undefined;
-  newNote.postedBy = req.profile;
-
-  newNote.save(err => {
+  form.keepExtensions = true;
+  form.parse(req, (err, fields, files) => {
     if (err) {
       return res.status(400).json({
-        msg: "Something went wrong -Ian"
+        error: "Image could not be uploaded"
       });
     }
-    res.json({
-      msg:
-        "Note has been successfully added to archive and Sunday collections -Ian"
+    let post = new Thursday(fields);
+
+    req.profile.hashed_password = undefined;
+    req.profile.salt = undefined;
+    post.postedBy = req.profile;
+
+    post.save((err, result) => {
+      if (err) {
+        return res.status(400).json({
+          error: err
+        });
+      }
+      res.json(result);
     });
-    newArchive.save();
   });
 };
 
 exports.createNewNoteFriday = (req, res) => {
-  let newNote = new Friday(req.body);
-  let newArchive = new Archive(newNote);
+  let form = new formidable.IncomingForm();
 
-  req.profile.hashed_password = undefined;
-  req.profile.salt = undefined;
-  newNote.postedBy = req.profile;
-
-  newNote.save(err => {
+  form.keepExtensions = true;
+  form.parse(req, (err, fields, files) => {
     if (err) {
       return res.status(400).json({
-        msg: "Something went wrong -Ian"
+        error: "Image could not be uploaded"
       });
     }
-    res.json({
-      msg:
-        "Note has been successfully added to archive and Sunday collections -Ian"
+    let post = new Friday(fields);
+
+    req.profile.hashed_password = undefined;
+    req.profile.salt = undefined;
+    post.postedBy = req.profile;
+
+    post.save((err, result) => {
+      if (err) {
+        return res.status(400).json({
+          error: err
+        });
+      }
+      res.json(result);
     });
-    newArchive.save();
   });
 };
 
 exports.createNewNoteSaturday = (req, res) => {
-  let newNote = new Saturday(req.body);
-  let newArchive = new Archive(newNote);
+  let form = new formidable.IncomingForm();
 
-  req.profile.hashed_password = undefined;
-  req.profile.salt = undefined;
-  newNote.postedBy = req.profile;
-
-  newNote.save(err => {
+  form.keepExtensions = true;
+  form.parse(req, (err, fields, files) => {
     if (err) {
       return res.status(400).json({
-        msg: "Something went wrong -Ian"
+        error: "Image could not be uploaded"
       });
     }
-    res.json({
-      msg:
-        "Note has been successfully added to archive and Sunday collections -Ian"
+    let post = new Saturday(fields);
+
+    req.profile.hashed_password = undefined;
+    req.profile.salt = undefined;
+    post.postedBy = req.profile;
+
+    post.save((err, result) => {
+      if (err) {
+        return res.status(400).json({
+          error: err
+        });
+      }
+      res.json(result);
     });
-    newArchive.save();
   });
 };

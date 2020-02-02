@@ -3,8 +3,17 @@ import { isAuthenticated } from "../auth/Index";
 import { read } from "./User-API";
 import { Jumbotron, Button, Card, Row, CardGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import moment from "moment";
 
-import { allSunday } from "../notes/note-api";
+import {
+  allSunday,
+  allMonday,
+  allTuesday,
+  allWednesday,
+  allThursday,
+  allFriday,
+  allSaturday
+} from "../notes/note-api";
 
 class Profile extends Component {
   constructor() {
@@ -35,10 +44,105 @@ class Profile extends Component {
       }
       console.log(this.state.sunday);
     });
+
+    allMonday(userId, token).then(data => {
+      if (data.error) {
+        this.setState({ error: data.error });
+      } else {
+        this.setState({ monday: data });
+      }
+      console.log(this.state.monday);
+    });
+
+    allTuesday(userId, token).then(data => {
+      if (data.error) {
+        this.setState({ error: data.error });
+      } else {
+        this.setState({ tuesday: data });
+      }
+      console.log(this.state.tuesday);
+    });
+
+    allWednesday(userId, token).then(data => {
+      if (data.error) {
+        this.setState({ error: data.error });
+      } else {
+        this.setState({ wednesday: data });
+      }
+      console.log(this.state.wednesday);
+    });
+
+    allThursday(userId, token).then(data => {
+      if (data.error) {
+        this.setState({ error: data.error });
+      } else {
+        this.setState({ thursday: data });
+      }
+      console.log(this.state.thursday);
+    });
+
+    allFriday(userId, token).then(data => {
+      if (data.error) {
+        this.setState({ error: data.error });
+      } else {
+        this.setState({ friday: data });
+      }
+      console.log(this.state.friday);
+    });
+
+    allSaturday(userId, token).then(data => {
+      if (data.error) {
+        this.setState({ error: data.error });
+      } else {
+        this.setState({ saturday: data });
+      }
+      console.log(this.state.saturday);
+    });
   }
 
   render() {
-    const { sunday } = this.state;
+    let sun = moment()
+      .startOf("week")
+      .format("dddd, MMMM Do YYYY");
+
+    let mon = moment()
+      .startOf("week")
+      .add(1, "d")
+      .format("dddd, MMMM Do YYYY");
+
+    let tue = moment()
+      .startOf("week")
+      .add(2, "d")
+      .format("dddd, MMMM Do YYYY");
+
+    let wed = moment()
+      .startOf("week")
+      .add("3", "d")
+      .format("dddd, MMMM Do YYYY");
+
+    let thu = moment()
+      .startOf("week")
+      .add("4", "d")
+      .format("dddd, MMMM Do YYYY");
+
+    let fri = moment()
+      .startOf("week")
+      .add("5", "d")
+      .format("dddd, MMMM Do YYYY");
+
+    let sat = moment()
+      .endOf("week")
+      .format("dddd, MMMM Do YYYY");
+
+    const {
+      sunday,
+      monday,
+      tuesday,
+      wednesday,
+      thursday,
+      friday,
+      saturday
+    } = this.state;
     return (
       <div
         style={{
@@ -47,10 +151,12 @@ class Profile extends Component {
           textAlign: "center"
         }}
       >
+        <h1>Today is your Day!</h1>
+        <h4> Create a note corresponding to an task you have for the week</h4>
         <Card style={{ margin: "20px" }}>
-          <Card.Header as="h5">Sunday</Card.Header>
+          <Card.Header as="h5">{sun}</Card.Header>
           <Card.Body>
-            <Card.Title>{sunday.length}</Card.Title>
+            <Card.Title>{sunday.length} notes</Card.Title>
             <Card.Text></Card.Text>
 
             <Link to={`/sunday/${isAuthenticated().user._id}`}>
@@ -60,56 +166,68 @@ class Profile extends Component {
         </Card>
 
         <Card style={{ margin: "20px" }}>
-          <Card.Header as="h5">Monday</Card.Header>
+          <Card.Header as="h5">{mon}</Card.Header>
           <Card.Body>
-            <Card.Title></Card.Title>
+            <Card.Title>{monday.length} notes</Card.Title>
             <Card.Text></Card.Text>
-            <Button variant="primary">View all notes</Button>
+            <Link to={`/monday/${isAuthenticated().user._id}`}>
+              <Button variant="primary">View all notes</Button>
+            </Link>
           </Card.Body>
         </Card>
 
         <Card style={{ margin: "20px" }}>
-          <Card.Header as="h5">Tuesday</Card.Header>
+          <Card.Header as="h5">{tue}</Card.Header>
           <Card.Body>
-            <Card.Title></Card.Title>
+            <Card.Title>{tuesday.length} notes</Card.Title>
             <Card.Text></Card.Text>
-            <Button variant="primary">View all notes</Button>
+            <Link to={`/tuesday/${isAuthenticated().user._id}`}>
+              <Button variant="primary">View all notes</Button>
+            </Link>
           </Card.Body>
         </Card>
 
         <Card style={{ margin: "20px" }}>
-          <Card.Header as="h5">Wednesday</Card.Header>
+          <Card.Header as="h5">{wed}</Card.Header>
           <Card.Body>
-            <Card.Title></Card.Title>
+            <Card.Title>{wednesday.length} notes</Card.Title>
             <Card.Text></Card.Text>
-            <Button variant="primary">View all notes</Button>
+            <Link to={`/wednesday/${isAuthenticated().user._id}`}>
+              <Button variant="primary">View all notes</Button>
+            </Link>
           </Card.Body>
         </Card>
 
         <Card style={{ margin: "20px" }}>
-          <Card.Header as="h5">Thursday</Card.Header>
+          <Card.Header as="h5">{thu}</Card.Header>
           <Card.Body>
-            <Card.Title></Card.Title>
+            <Card.Title>{thursday.length} notes</Card.Title>
             <Card.Text></Card.Text>
-            <Button variant="primary">View all notes</Button>
+            <Link to={`/thursday/${isAuthenticated().user._id}`}>
+              <Button variant="primary">View all notes</Button>
+            </Link>
           </Card.Body>
         </Card>
 
         <Card style={{ margin: "20px" }}>
-          <Card.Header as="h5">Friday</Card.Header>
+          <Card.Header as="h5">{fri}</Card.Header>
           <Card.Body>
-            <Card.Title></Card.Title>
+            <Card.Title>{friday.length} notes</Card.Title>
             <Card.Text></Card.Text>
-            <Button variant="primary">View all notes</Button>
+            <Link to={`/friday/${isAuthenticated().user._id}`}>
+              <Button variant="primary">View all notes</Button>
+            </Link>
           </Card.Body>
         </Card>
 
         <Card style={{ margin: "20px" }}>
-          <Card.Header as="h5">Saturday</Card.Header>
+          <Card.Header as="h5">{sat}</Card.Header>
           <Card.Body>
-            <Card.Title></Card.Title>
+            <Card.Title>{saturday.length} notes</Card.Title>
             <Card.Text></Card.Text>
-            <Button variant="primary">View all notes</Button>
+            <Link to={`/saturday/${isAuthenticated().user._id}`}>
+              <Button variant="primary">View all notes</Button>
+            </Link>
           </Card.Body>
         </Card>
       </div>
