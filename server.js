@@ -7,48 +7,10 @@ const mongoose = require("mongoose");
 const path = require("path");
 const cors = require("cors");
 
-const moment = require("moment");
-
 const dotenv = require("dotenv");
 dotenv.config();
 
 const app = express();
-
-// logic purposed for frontend. will be used for the
-// day models to catagorize the days
-
-// let sun = moment()
-//   .startOf("week")
-//   .format("dddd, MMMM Do YYYY");
-
-// let mon = moment()
-//   .startOf("week")
-//   .add(1, "d")
-//   .format("dddd, MMMM Do YYYY");
-
-// let tue = moment()
-//   .startOf("week")
-//   .add(2, "d")
-//   .format("dddd, MMMM Do YYYY");
-
-// let wed = moment()
-//   .startOf("week")
-//   .add("3", "d")
-//   .format("dddd, MMMM Do YYYY");
-
-// let thur = moment()
-//   .startOf("week")
-//   .add("4", "d")
-//   .format("dddd, MMMM Do YYYY");
-
-// let fri = moment()
-//   .startOf("week")
-//   .add("5", "d")
-//   .format("dddd, MMMM Do YYYY");
-
-// let sat = moment()
-//   .endOf("week")
-//   .format("dddd, MMMM Do YYYY");
 
 //Routes
 const authRoutes = require("./routes/auth-routes");
