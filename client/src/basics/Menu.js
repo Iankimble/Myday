@@ -22,22 +22,19 @@ const Menu = ({ history }) => (
       expand="lg"
       bg=""
       variant=""
-      style={{ color: "#6e6e6dff" }}
+      style={{ color: "black", backgroundColor: "#A79080" }}
     >
       {!isAuthenticated() && (
         <>
           <Navbar.Brand>
-            <Link
-              style={(isActive(history, "/"), { color: "#6e6e6dff" })}
-              to="/"
-            >
+            <Link style={(isActive(history, "/"), { color: "white" })} to="/">
               My Day
             </Link>
           </Navbar.Brand>
 
           <Nav.Link>
             <Link
-              style={(isActive(history, "/signup"), { color: "#6e6e6dff" })}
+              style={(isActive(history, "/signup"), { color: "white" })}
               to="/signup"
             >
               Sign up
@@ -46,7 +43,7 @@ const Menu = ({ history }) => (
 
           <Nav.Link>
             <Link
-              style={(isActive(history, "/signin"), { color: "#6e6e6dff" })}
+              style={(isActive(history, "/signin"), { color: "white" })}
               to="/signin"
             >
               Sign in
@@ -62,7 +59,7 @@ const Menu = ({ history }) => (
               to={`/user/${isAuthenticated().user._id}`}
               style={
                 (isActive(history, `/user/${isAuthenticated().user._id}`),
-                { color: "#6e6e6dff", textDecoration: "none" })
+                { color: "black", textDecoration: "none" })
               }
               className="nav-link"
             >
@@ -72,7 +69,7 @@ const Menu = ({ history }) => (
 
           <Navbar.Toggle
             areia-controls="responsive-navbar-nav"
-            style={{ backgroundColor: "#6e6e6dff" }}
+            style={{ backgroundColor: "transparent" }}
           />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav style={{ display: "flex", marginLeft: "auto" }}>
