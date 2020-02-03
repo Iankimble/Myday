@@ -80,3 +80,13 @@ const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`app is on ${port}`);
 });
+
+// React front end
+app.use(express.static(path.join(__dirname, "client", "build")));
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+
+app.get("*", (request, response) => {
+  response.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
